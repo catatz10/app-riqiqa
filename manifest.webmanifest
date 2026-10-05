@@ -8,7 +8,6 @@
   "fullscreen",
   "standalone"
  ],
- "orientation": "landscape",
  "background_color": "#FAFAFA",
  "theme_color": "#FAFAFA",
  "icons": [
