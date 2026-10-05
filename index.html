@@ -51,16 +51,17 @@ input[type=range]::-moz-range-track{height:16px;border-radius:8px;background:var
 input[type=range]::-moz-range-progress{height:16px;border-radius:8px;background:var(--primary)}
 input[type=range]::-moz-range-thumb{width:4px;height:40px;border:none;border-radius:2px;background:var(--primary)}
 /* グリッド */
-#wrap{overflow:auto;padding:4px 8px 48px}
+#wrap{overflow:auto;padding:4px 0 48px}
+#g{padding-right:8px}
 #g{display:grid;align-items:center;width:max-content}
 .ph,.cell{display:flex;justify-content:center;padding:4px}
 .alt{background:var(--sc)}
 .pill{width:100%;height:20px;border:1px solid var(--outline);border-radius:10px;font-size:11px;text-align:center;line-height:18px;color:var(--on-sv)}
 .now .pill{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
-.corner{position:sticky;left:0;z-index:2;background:var(--surface);display:flex;align-items:center;gap:6px;height:100%}
+.corner{position:sticky;left:0;z-index:2;background:var(--surface);display:flex;align-items:center;gap:6px;height:100%;padding-left:8px}
 .corner b{min-width:22px;text-align:center;font-weight:500;font-size:16px}
 .rb{width:36px;height:36px;border-radius:50%;background:var(--btn);color:var(--on-s);display:grid;place-items:center}
-.lab{position:sticky;left:0;z-index:1;background:var(--surface);display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;height:100%;padding-right:6px}
+.lab{position:sticky;left:0;z-index:1;background:var(--surface);display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;height:100%;padding:0 6px 0 8px}
 .vs{position:relative;flex:none;width:24px;height:42px;border-radius:12px;background:var(--sec);overflow:hidden;touch-action:pan-x}
 .vs i{position:absolute;left:0;right:0;bottom:0;background:var(--primary)}
 .c{position:relative;width:42px;height:42px;border-radius:50%;padding:0;touch-action:pan-x;
@@ -185,7 +186,7 @@ dialog>*{flex:none}
 </dialog>
 <dialog id="dSave">
  <p class="ttl">Save as</p>
- <input id="sname" type="text" maxlength="40">
+ <input id="sname" type="text" maxlength="40" autocomplete="off" enterkeyhint="done">
  <div class="acts"><button class="fb" onclick="dSave.close()"><svg class="i"><use href="#i-close"/></svg></button>
   <button class="fb p" id="sok"><svg class="i"><use href="#i-check"/></svg></button></div>
 </dialog>
@@ -250,7 +251,7 @@ function groupIdx(){const a=(S.grp||'').split(/[^0-9]+/).map(Number).filter(x=>x
  while(r.length<S.n){for(const s of a){for(let j=0;j<s&&r.length<S.n;j++)r.push(gi);gi++}}return r}
 function render(){
  const gi=groupIdx(),alt=i=>gi[i]%2?' alt':'';
- g.style.gridTemplateColumns=`112px repeat(${S.n},56px)`;
+ g.style.gridTemplateColumns=`120px repeat(${S.n},56px)`;
  let h=`<div class="corner"><button class="rb" id="dec">${ico('rm')}</button><b>${S.n}</b><button class="rb" id="inc">${ico('add')}</button></div>`;
  for(let i=0;i<S.n;i++)h+=`<div class="ph${alt(i)}" data-col="${i}"><div class="pill">${i+1}</div></div>`;
  INST.forEach(([k,l])=>{
@@ -330,6 +331,13 @@ $('sok').onclick=doSave;
 $('ovNo').onclick=()=>$('dOver').close();
 $('ovYes').onclick=()=>{$('dOver').close();if(ovAct)ovAct()};
 $('sname').onkeydown=e=>{if(e.key==='Enter')doSave()};
+/* Gboardのキーボード切替(スペース長押し)で入力欄から外れても、戻ったらフォーカスを戻す */
+let snWant=false;
+$('sname').addEventListener('focus',()=>{snWant=true});
+$('dSave').addEventListener('close',()=>{snWant=false});
+function snRefocus(){if(snWant&&$('dSave').open&&document.activeElement!==$('sname'))setTimeout(()=>$('sname').focus(),80)}
+addEventListener('focus',snRefocus);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')snRefocus()});
 const MAXSHARE=10;
 let shareMode=false;const sel=new Set();
 function renderList(){const ks=Object.keys(getAll());
