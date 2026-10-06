@@ -54,14 +54,15 @@ input[type=range]::-moz-range-thumb{width:4px;height:40px;border:none;border-rad
 #wrap{overflow:auto;padding:4px 0 48px}
 #g{padding-right:8px}
 #g{display:grid;align-items:center;width:max-content}
-.ph,.cell{display:flex;justify-content:center;padding:4px}
+.ph{display:flex;justify-content:center;padding:4px}
+.cell{display:flex;justify-content:center;padding:5px 4px}
 .alt{background:var(--sc)}
 .pill{width:100%;height:20px;border:1px solid var(--outline);border-radius:10px;font-size:11px;text-align:center;line-height:18px;color:var(--on-sv)}
 .now .pill{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
-.corner{position:sticky;left:0;z-index:2;background:var(--surface);display:flex;align-items:center;gap:6px;height:100%;padding-left:8px}
+.corner{position:sticky;left:0;z-index:2;background:var(--surface);display:flex;align-items:center;gap:6px;height:100%;padding-left:16px}
 .corner b{min-width:22px;text-align:center;font-weight:500;font-size:16px}
 .rb{width:36px;height:36px;border-radius:50%;background:var(--btn);color:var(--on-s);display:grid;place-items:center}
-.lab{position:sticky;left:0;z-index:1;background:var(--surface);display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;height:100%;padding:0 6px 0 8px}
+.lab{position:sticky;left:0;z-index:1;background:var(--surface);display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;height:100%;padding:0 6px 0 16px}
 .vs{position:relative;flex:none;width:24px;height:42px;border-radius:12px;background:var(--sec);overflow:hidden;touch-action:pan-x}
 .vs i{position:absolute;left:0;right:0;bottom:0;background:var(--primary)}
 .c{position:relative;width:42px;height:42px;border-radius:50%;padding:0;touch-action:pan-x;
@@ -127,6 +128,8 @@ dialog>*{flex:none}
 <symbol id="i-err" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></symbol>
 <symbol id="i-sleep" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v16h10V4H7z"/><path transform="translate(12 12) scale(.36) translate(-12 -12)" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></symbol>
 <symbol id="i-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></symbol>
+<symbol id="i-fs" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></symbol>
+<symbol id="i-fsx" viewBox="0 0 24 24"><path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/></symbol>
 <symbol id="i-info" viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></symbol>
 <symbol id="i-step" viewBox="0 0 24 24"><path d="M3 6h2v12H3zM19 6h2v12h-2zM6 11h12v2H6zM6 12l4-3v6zM18 12l-4-3v6z"/></symbol>
 <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 5h4v14H4zM10 5h4v14h-4zM16 5h4v14h-4z"/></symbol>
@@ -136,6 +139,7 @@ dialog>*{flex:none}
  <button id="name" class="title">Rhythm Name</button>
  <button class="ib" id="load"><svg class="i"><use href="#i-load"/></svg></button>
  <button class="ib" id="save"><svg class="i"><use href="#i-save"/></svg></button>
+ <button class="ib" id="fs"><svg class="i"><use id="fsu" href="#i-fs"/></svg></button>
  <button class="ib" id="set"><svg class="i"><use href="#i-set"/></svg></button>
 </header>
 <section class="ctl">
@@ -251,7 +255,7 @@ function groupIdx(){const a=(S.grp||'').split(/[^0-9]+/).map(Number).filter(x=>x
  while(r.length<S.n){for(const s of a){for(let j=0;j<s&&r.length<S.n;j++)r.push(gi);gi++}}return r}
 function render(){
  const gi=groupIdx(),alt=i=>gi[i]%2?' alt':'';
- g.style.gridTemplateColumns=`120px repeat(${S.n},56px)`;
+ g.style.gridTemplateColumns=`128px repeat(${S.n},54px)`;
  let h=`<div class="corner"><button class="rb" id="dec">${ico('rm')}</button><b>${S.n}</b><button class="rb" id="inc">${ico('add')}</button></div>`;
  for(let i=0;i<S.n;i++)h+=`<div class="ph${alt(i)}" data-col="${i}"><div class="pill">${i+1}</div></div>`;
  INST.forEach(([k,l])=>{
@@ -331,13 +335,6 @@ $('sok').onclick=doSave;
 $('ovNo').onclick=()=>$('dOver').close();
 $('ovYes').onclick=()=>{$('dOver').close();if(ovAct)ovAct()};
 $('sname').onkeydown=e=>{if(e.key==='Enter')doSave()};
-/* Gboardのキーボード切替(スペース長押し)で入力欄から外れても、戻ったらフォーカスを戻す */
-let snWant=false;
-$('sname').addEventListener('focus',()=>{snWant=true});
-$('dSave').addEventListener('close',()=>{snWant=false});
-function snRefocus(){if(snWant&&$('dSave').open&&document.activeElement!==$('sname'))setTimeout(()=>$('sname').focus(),80)}
-addEventListener('focus',snRefocus);
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')snRefocus()});
 const MAXSHARE=10;
 let shareMode=false;const sel=new Set();
 function renderList(){const ks=Object.keys(getAll());
@@ -441,6 +438,16 @@ $('info').onclick=()=>{$('credits').innerHTML=CREDITS.map(c=>
 
 /* ---- 設定・バックアップ ---- */
 $('set').onclick=()=>$('dSet').showModal();
+
+/* ---- フルスクリーン切替 (非対応の端末・すでに全画面のアプリ表示では非表示) ---- */
+const fsEl=document.documentElement,fsReq=fsEl.requestFullscreen||fsEl.webkitRequestFullscreen;
+const isFs=()=>document.fullscreenElement||document.webkitFullscreenElement;
+const fsSync=()=>$('fsu').setAttribute('href',isFs()?'#i-fsx':'#i-fs');
+if(!fsReq||matchMedia('(display-mode: fullscreen)').matches)$('fs').hidden=true;
+$('fs').onclick=async()=>{try{
+ if(isFs())await(document.exitFullscreen||document.webkitExitFullscreen).call(document);
+ else await fsReq.call(fsEl,{navigationUI:'hide'})}catch(e){toast(false)}};
+document.addEventListener('fullscreenchange',fsSync);document.addEventListener('webkitfullscreenchange',fsSync);
 $('exp').onclick=()=>{const blob=new Blob([JSON.stringify({app:'rhythm-loop',v:1,rhythms:getAll()},null,1)],{type:'application/json'});
  const u=URL.createObjectURL(blob),l=document.createElement('a');l.href=u;
  l.download='rhythm-backup-'+new Date().toISOString().slice(0,10)+'.json';
